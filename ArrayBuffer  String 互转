@@ -1,3 +1,5 @@
+https://stackoverflow.com/questions/6965107/converting-between-strings-and-arraybuffers/
+
 function ab2str(buf) {
   return String.fromCharCode.apply(null, new Uint16Array(buf));
 }
@@ -10,3 +12,21 @@ function str2ab(str) {
   }
   return buf;
 }
+
+
+
+
+function utf8AbFromStr(str) {
+    var strUtf8 = unescape(encodeURIComponent(str));
+    var ab = new Uint8Array(strUtf8.length);
+    for (var i = 0; i < strUtf8.length; i++) {
+        ab[i] = strUtf8.charCodeAt(i);
+    }
+    return ab;
+}
+
+function strFromUtf8Ab(ab) {
+    return decodeURIComponent(escape(String.fromCharCode.apply(null, ab)));
+}
+
+
