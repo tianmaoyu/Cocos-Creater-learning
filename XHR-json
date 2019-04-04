@@ -1,0 +1,19 @@
+export class XHR {
+
+    public static ajax(url: string, success: Function = null, fail: Function = null) {
+        let xhr = new XMLHttpRequest();
+        xhr.open('get', url, true)
+        xhr.send();
+        xhr.onreadystatechange = () => {
+            if (xhr.readyState == 4) {
+                if (xhr.status == 200) {
+                    if (success) success(xhr.responseText);
+                }
+                else {
+                    if (fail) fail();
+                }
+            }
+        }
+    }
+
+}
