@@ -1,0 +1,9 @@
+
+setTimeout(function () {
+     if (ws.readyState === WebSocket.OPEN) {
+         ws.send("Hello WebSocket, I'm a text message.");
+     }
+     else {
+         console.log("WebSocket instance wasn't ready...");
+     }
+ }, 3);
