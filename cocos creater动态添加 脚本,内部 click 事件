@@ -1,0 +1,70 @@
+import Background from "./background";
+
+const {ccclass, property} = cc._decorator;
+
+@ccclass
+export default class Helloworld extends cc.Component {
+
+    @property(cc.Label)
+    label: cc.Label = null;
+
+    @property
+    text: string = 'hello';
+
+    start () {
+        // init logic
+        this.label.string = this.text;
+
+        this.node.addComponent(Background);
+    }
+}
+
+
+const { ccclass, property } = cc._decorator;
+
+@ccclass
+export default class Background extends cc.Component {
+
+    @property(cc.Label)
+    label: cc.Label = null;
+
+    @property
+    text: string = 'hello';
+
+    // LIFE-CYCLE CALLBACKS:
+
+    // onLoad () {}
+
+    start() {
+
+        var node = cc.find("Canvas/label01");
+        node.getComponent(cc.Label).string = "挂载的组件";
+        console.info(node.name);
+        var buttonNode = cc.find("Canvas/Button");
+       
+        buttonNode.on(cc.Node.EventType.TOUCH_START,this.buttonClient,buttonNode,)
+
+
+        // var hanlder = new cc.Component.EventHandler();
+        // hanlder.target = this.node;
+        // hanlder.component = "background";
+        // hanlder.handler = "buttonClient";
+
+        // buttonNode.getComponent(cc.Button).clickEvents.push(hanlder);
+
+        // var func = () => buttonNode.getComponent(cc.Button).clickEvents[0].emit(['click']);
+        // this.schedule(func, 2);
+
+
+
+    }
+
+    update(dt) {
+        //console.info(dt);
+    }
+
+    private buttonClient(event: cc.Event.EventTouch) {
+        console.info(this);
+        console.info(event);
+    }
+}
