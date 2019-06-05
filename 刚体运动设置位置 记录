@@ -1,0 +1,4 @@
+https://forum.cocos.com/t/cocoscreator/74265/2
+// example
+var placeAction = cc.place(cc.v2(200, 200));
+var placeAction = cc.place(200, 200);
