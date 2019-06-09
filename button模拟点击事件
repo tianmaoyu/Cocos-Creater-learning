@@ -1,1 +1,8 @@
  node.getComponent(cc.Button).clickEvents[0].emit(['click']);
+ 
+由于事件可以 直接注册
+   var offlineBtn = cc.find("Canvas/Buttons/offline_button");
+       offlineBtn.on("click",this.on_login_offline_room);
+       
+也可以使用 
+offineBtn.off("click") 试试触发事件
