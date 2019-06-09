@@ -68,3 +68,9 @@ export default class Background extends cc.Component {
         console.info(event);
     }
 }
+
+## 方法二：
+  .直接注册 click 事件更简单:
+  
+     var offlineBtn = cc.find("Canvas/Buttons/offline_button");
+     offlineBtn.on("click",this.on_login_offline_room);
