@@ -1,0 +1,7 @@
+         跟随，就是把他的一个一个坐标，设置到自己的坐标，自己就相对于他，一直在一个位置
+        var targer_position = this.topTarger.convertToWorldSpaceAR(cc.v2(0, 0));
+        var follower_position = this.node.getParent().convertToNodeSpaceAR(targer_position);
+        //cc.log("把 targer 的世界坐标 转成 flower 的 父节点下的坐标");
+        //this.node.setPosition(follower_position);//有 bug
+        this.node.x = follower_position.x + this.x;
+        this.node.y = follower_position.y + this.y;
