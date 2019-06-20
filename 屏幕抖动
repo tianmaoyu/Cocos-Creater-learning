@@ -1,0 +1,16 @@
+cc.Class({
+            extends: cc.Component,
+            properties: {},
+            start: function() {},
+            clickBtn: function() {
+                this.shakeScreenEffect()
+            },
+            shakeScreenEffect: function() {
+                var t = arguments.length > 0 && void 0 !== arguments[0] ? arguments[0] : .5
+                  , e = cc.Camera.main.node.runAction(cc.repeatForever(cc.sequence(cc.moveTo(.02, cc.v2(5, 7)), cc.moveTo(.02, cc.v2(-6, 7)), cc.moveTo(.02, cc.v2(-13, 3)), cc.moveTo(.02, cc.v2(3, -6)), cc.moveTo(.02, cc.v2(-5, 5)), cc.moveTo(.02, cc.v2(2, -8)), cc.moveTo(.02, cc.v2(-8, -10)), cc.moveTo(.02, cc.v2(3, 10)), cc.moveTo(.02, cc.v2(0, 0)))));
+                setTimeout(function() {
+                    cc.Camera.main.node.stopAction(e),
+                    cc.Camera.main.node.setPosition(0, 0)
+                }, 1e3 * t)
+            }
+        }),、
