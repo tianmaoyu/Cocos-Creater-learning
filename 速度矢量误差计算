@@ -1,0 +1,10 @@
+ private lastV2:cc.Vec2=cc.v2(0,0);
+    private sendPosition( ){
+        var currentv2= this.rigidBody.linearVelocity;
+        let differenceV2=  currentv2.sub(this.lastV2)
+        let mag= differenceV2.mag();
+        // if(differenceV2.mag()>5){
+            console.info("长度误差："+mag+"角度误差："+currentv2.angle(this.lastV2)*180/3.14);
+            this.lastV2=currentv2;
+        // }
+    }
